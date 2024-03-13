@@ -1,0 +1,79 @@
+<div
+  class="flex flex-initial bg-slate-400 w-48 min-h-screen px-4 justify-center fixed"
+>
+  <div>
+    <ul class="items-center px-2 py-3">
+      <img
+        src="../../assets/logo.png"
+        alt=""
+        class="mix-blend-multiply brightness-[1] shadow-2xl shadow-white"
+      />
+
+      <hr class="text-black font-extrabold w-full" />
+      <li
+        class="text-black bg-slate-500 w-44 h-12 flex justify-center items-center rounded-2xl hover:ease-out hover:animate-pulse active:file:order-1 cursor-pointer"
+      >
+        {{loggedInUserName}}
+      </li>
+      <hr class="text-black font-extrabold w-full" />
+      <a routerLink="/dashboard" routerLinkActive="active">
+        <li
+          class="text-black bg-slate-500 w-44 h-12 flex justify-center items-center rounded-2xl hover:ease-out hover:animate-pulse active:file:order-1 cursor-pointer"
+          [class.text-white]="isDashboardPageActive()"
+        >
+          Dashboard
+        </li>
+        <hr class="text-black font-extrabold w-full" />
+      </a>
+      <a
+        routerLink="/users"
+        routerLinkActive="active"
+        class="dark:bg-gray-800 dark:text-blue-500"
+      >
+        <li
+          class="text-black bg-slate-500 w-44 h-12 flex justify-center items-center rounded-2xl hover:ease-out hover:animate-pulse active:file:order-1 cursor-pointer"
+          [class.text-white]="isUsersPageActive()"
+        >
+          Users
+        </li>
+      </a>
+
+      <hr class="text-black font-extrabold w-full" />
+      <a
+        routerLink="/permission"
+        routerLinkActive="active"
+        class="dark:bg-gray-800 dark:text-blue-500"
+      >
+        <li
+          class="text-black bg-slate-500 w-44 h-12 flex justify-center items-center rounded-2xl hover:ease-out hover:animate-pulse active:file:order-1 cursor-pointer"
+          [class.text-white]="isPermissionPageActive()"
+        >
+          Permission
+        </li>
+      </a>
+
+      <hr class="text-black font-extrabold w-full" />
+      <li
+        type="submit"
+        (click)="logout()"
+        class="text-black bg-slate-500 w-44 h-12 flex justify-center items-center rounded-2xl hover:ease-out hover:animate-pulse active:file:order-1 cursor-pointer"
+      >
+        Logout
+      </li>
+      <li *ngIf="hasAuthToken()">
+        <a
+          routerLink="/login"
+          class="text-black bg-slate-500 w-44 h-12 flex justify-center items-center rounded-2xl hover:ease-out hover:animate-pulse active:file:order-1 cursor-pointer"
+          >Login</a
+        >
+      </li>
+      <li *ngIf="hasAuthToken()">
+        <a
+          routerLink="/signup"
+          class="text-black bg-slate-500 w-44 h-12 flex justify-center items-center rounded-2xl hover:ease-out hover:animate-pulse active:file:order-1 cursor-pointer"
+          >Signup</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>
